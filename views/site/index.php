@@ -70,6 +70,27 @@ echo GridView::widget([
 ?>
             </div>
         </div>
+        <div class="row">
+            <div class="col-lg-8">
+                <?php
+                echo GridView::widget([
+                    'dataProvider' => new ArrayDataProvider([
+                        'allModels' => $array,
+                        'sort' => [
+                            'attributes' => $searchAttributes,
+                        ],
+                    ]),
+                    'filterModel' => $searchModel,
+                    'columns' => array_merge(
+                        $searchColumns, [
+                            // ['class' => 'yii\grid\ActionColumn']
+                        ]
+                    )
+                ]);
+                ?>
+            </div>
+        </div>
+
 
     </div>
 </div>
